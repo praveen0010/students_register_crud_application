@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>student_details</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+      input {
+        width: 350px;
+        height: 15px;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .sub_b {
+        width: 80px;
+        height: auto;
+        display: inline;
+        background-color: green;
+        color: black;
+        margin-top: 5px;
+      }
+      .li_b {
+        width: 90px;
+        height: auto;
+        background-color: rgb(253, 39, 39);
+        display: inline;
+        position: relative;
+        bottom: 50px;
+        left: 300px;
+      }
+      .h_l {
+        text-decoration: none;
+        color: black;
+      }
+      h1 {
+        position: relative;
+        top: 20px;
+        right: 25px;
+      }
+      button {
+        border-radius: 15px;
+        border: none;
+        color: black;
+        font-weight: bold;
+        padding: 5px;
+        box-shadow: 2px 2px 2px #000000;
+      }
+      .container{
+        box-shadow: 2px 2px 2px 2px black;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><strong>Student Register Form CRUD_Operations</strong></h1>
+    <div class="container">
+      <form action="{% url 'student_form' %}" method="post">
+        {%csrf_token%} {{form}}
+        <button class="sub_b" type="submit">submit</button>
+      </form>
+      <button class="li_b">
+        <a class="h_l" href="{% url 'student_list' %}">student_list</a>
+      </button>
+    </div>
+  </body>
+</html>

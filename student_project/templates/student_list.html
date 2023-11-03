@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>student_details</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+      }
+      .tr_td {
+        position: relative;
+        left: 17px;
+        padding: 10px;
+      }
+      .tb {
+        position: relative;
+        top: 100px;
+      }
+      h1 {
+        position: relative;
+        left: 375px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .del {
+        background-color: rgb(236, 43, 43);
+        font-weight: bold;
+        color: black;
+      }
+      .up {
+        background-color: rgb(238, 238, 84);
+        font-weight: bold;
+        color: black;
+      }
+      .add_new {
+        background-color: rgb(144, 255, 144);
+        font-weight: bold;
+        color: black;
+      }
+      button {
+        border-radius: 25px;
+        border: none;
+        box-shadow: 2px 2px 2px black;
+        padding: 5px;
+      }
+    .tb{
+        border-radius: 5px;
+        padding: 30px;
+        position: relative;
+        right: 200px;
+        box-shadow: 2px 2px 2px 2px black;
+        margin-top: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1><strong>Student Register Form CRUD_Operations</strong></h1>
+    <div class="container">
+      <table class="tb">
+        <thead>
+          <tr>
+            <td class="tr_td"><strong>Name</strong></td>
+            <td class="tr_td"><strong>Department</strong></td>
+            <td class="tr_td"><strong>Native</strong></td>
+            <td class="tr_td"><strong>Cgpa</strong></td>
+            <td class="tr_td">
+              <button class="add_new">
+                <a href="{% url 'student_form'%}">add_new</a>
+              </button>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in form%}
+          <tr>
+            <td class="tr_td">{{student.fullname}}</td>
+            <td class="tr_td">{{student.department}}</td>
+            <td class="tr_td">{{student.native}}</td>
+            <td class="tr_td">{{student.cgpa}}</td>
+            <td class="tr_td">
+              <button class="up">
+                <a href="{% url 'student_update' student.id %}">update</a>
+              </button>
+              <button class="del">
+                <a href="{% url 'student_delete' student.id %}">delete</a>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
